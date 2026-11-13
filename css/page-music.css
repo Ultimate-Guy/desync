@@ -270,6 +270,10 @@ body.rail-open .player { left: var(--rail-open); }
   color: #000;
 }
 .player-play:hover { background: #e2e2e2; color: #000; }
+.player-play .ic-spin { display: none; }
+.player-play.loading .ic-play, .player-play.loading .ic-pause { display: none; }
+.player-play.loading .ic-spin { display: block; animation: music-spin 0.8s linear infinite; transform-origin: 50% 50%; }
+@keyframes music-spin { to { transform: rotate(360deg); } }
 .player-lyrics-btn.active { color: #fff; background: var(--surface-hover); }
 .player-mini { color: var(--text-faint); }
 .player-mini.on { color: #fff; }
