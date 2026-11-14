@@ -1,178 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script src="s3-shim.js?v=717d2ea503"></script>
-  <meta charset="UTF-8">
-  <script src="j/b84ad467fa.js"></script>
-  <script src="j/2c09fc8ac4.js"></script>
-  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/page-account.css?v=14">
-  <link rel="stylesheet" href="css/ui.css?v=30">
-</head>
-<body>
-
-  <div class="page-container ol-stage" id="pageContent">
-    <div class="not-logged-in" id="notLoggedIn">
-      <div class="ol-panel account-auth" id="accountAuth"></div>
-    </div>
-
-    <div id="accountContent" style="display:none;">
-      <h1 class="page-title">Account</h1>
-
-      <div class="card">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4.2"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-          Profile
-        </div>
-        <div class="profile-header">
-          <div id="avatarContainer"></div>
-          <div class="profile-details">
-            <h3 id="profileUsername">-</h3>
-            <div class="discord-tag" id="profileDiscord">Not linked</div>
-            <div id="membershipBadge"></div>
-          </div>
-        </div>
-
-        <div class="name-edit">
-          <label class="name-edit-label" for="displayNameInput">Display name</label>
-          <div class="name-edit-row">
-            <input type="text" class="ol-input" id="displayNameInput" maxlength="24"
-                   autocomplete="nickname" placeholder="Your name in chat">
-            <button class="ol-btn" type="button" id="displayNameSave">Save</button>
-          </div>
-          <div class="sync-msg" id="displayNameMsg"></div>
-        </div>
-      </div>
-
-      <div class="card" id="emailCard">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6.5 9 6 9-6"/></svg>
-          Email
-        </div>
-        <div id="emailBody"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M7.5 8h9M7.5 12h9M7.5 16h6"/></svg>
-          Today's AI
-        </div>
-        <div class="stats-grid">
-          <div class="stat-box">
-            <div class="stat-value" id="promptsUsed">0</div>
-            <div class="stat-label">Used Today</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="promptsRemaining">-</div>
-            <div class="stat-label">Left Today</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="promptLimit">-</div>
-            <div class="stat-label">Your Plan</div>
-          </div>
-        </div>
-        <div class="progress-bar-bg" style="margin-top:16px;">
-          <div class="progress-bar-fill" id="promptsBar" style="width:0%;"></div>
-        </div>
-      </div>
-
-      <div class="card" id="subscriptionCard" style="display:none;">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></svg>
-          Subscription
-        </div>
-        <div id="subscriptionBody"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></svg>
-          Membership Plans
-        </div>
-        <div class="plans-grid" id="plansGrid"></div>
-        <p id="plansNote" style="margin-top:16px; font-size:13px; color:rgba(255, 255, 255,0.5);">
-          Plans come from your D1SC00RD roles on the desync server.
-        </p>
-        <button class="sync-btn" id="syncBtn">Sync Membership from D1SC00RD</button>
-        <div class="sync-msg" id="syncMsg"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="#5a5a5a"><path d="M20.317 4.37a19.8 19.8 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.3 18.3 0 0 0-5.487 0 12.6 12.6 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.7 19.7 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.1 14.1 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.8 19.8 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-          D1SC00RD
-        </div>
-
-        <div id="linkStep1">
-          <p style="font-size:13px; color:rgba(255, 255, 255,0.6); margin-bottom:14px;">
-            Link your D1SC00RD to get the plan your roles give you. You need to be in the desync server, with direct messages from server members turned on.
-          </p>
-          <input type="text" class="auth-field ol-input" id="discordUsername" placeholder="Your D1SC00RD username" autocomplete="off">
-          <button class="sync-btn" id="linkStartBtn" style="margin-top:10px;">Send me a code</button>
-        </div>
-
-        <div id="linkStep2" style="display:none;">
-          <p style="font-size:13px; color:rgba(255, 255, 255,0.6); margin-bottom:14px;">
-            Check your D1SC00RD DMs for a 6-digit code. It expires in 10 minutes.
-          </p>
-          <input type="text" class="auth-field ol-input" id="discordCode" placeholder="6-digit code" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
-          <button class="sync-btn" id="linkVerifyBtn" style="margin-top:10px;">Link account</button>
-          <button class="sync-btn" id="linkCancelBtn" style="margin-top:8px; background:transparent;">Cancel</button>
-        </div>
-
-        <div id="linkStep3" style="display:none;">
-          <p style="font-size:13px; color:rgba(255, 255, 255,0.6); margin-bottom:14px;">
-            Your D1SC00RD is linked. Your plan follows your roles — use Sync above after a role changes.
-          </p>
-          <button class="sync-btn" id="unlinkBtn" style="background:rgba(220, 220, 220,0.15); border-color:rgba(220, 220, 220,0.3); color:#d8d8d8;">Unlink D1SC00RD</button>
-        </div>
-
-        <div class="sync-msg" id="linkMsg"></div>
-      </div>
-
-      <div class="card">
-        <button class="logout-btn-page" id="logoutBtn">Logout</button>
-      </div>
-
-      <div class="card delete-card">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>
-          Delete account
-        </div>
-        <p class="delete-desc">Permanently deletes your account and everything tied to it: chat messages and DMs, friends, groups you own, game saves, music library and AI history. This can't be undone.</p>
-        <button class="delete-btn" id="deleteStartBtn">Delete my account</button>
-        <div id="deleteConfirm" style="display:none;">
-          <input type="password" class="auth-field ol-input" id="deletePassword" placeholder="Enter your password to confirm" autocomplete="current-password">
-          <div class="delete-actions">
-            <button class="delete-btn solid" id="deleteConfirmBtn">Permanently delete</button>
-            <button class="sync-btn" id="deleteCancelBtn" style="background:transparent;">Cancel</button>
-          </div>
-        </div>
-        <div class="sync-msg" id="deleteMsg"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="auth-modal-overlay" id="loginModal">
-    <div class="auth-modal">
-      <button class="auth-close" id="closeLoginModal" aria-label="Close">&times;</button>
-      <div id="authFields"></div>
-    </div>
-  </div>
-
-  <script src="j/8e6f525625.js"></script>
-  <script src="j/b99721fc94.js"></script>
-  <script src="j/4847dcdaca.js"></script>
-  <script src="j/025caaf19a.js"></script>
-  <script src="j/d48acf7573.js"></script>
-  <script src="j/76dc47a7d8.js"></script>
-  <script src="j/282bb34338.js"></script>
-  <script src="j/1ed3515cd8.js"></script>
-  <script type="module" src="j/43fb08df7b.js"></script>
-</body>
-</html>
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><script>window.__SL={"id":"2449bdcc00afd858","api":"https://desynctutoring.com","blob":"/sealed/"};</script><script>(function(){var __xk=151,__xt=["uOTy9vvy87g=","ufX++Q==","+Pr+4w==","/vn0++Lz8g==","q7bz+PTj7ufyt//j+vupq/ry4/a39P/25eTy46ri4/G6r6mr+vLj9rf59vryquH+8uDn+OXjt/T4+ePy+eOqteD+8+P/qvPy4f708rrg/vPj/7v++f7j/vb7uuT09vvyqqa1qQ==","q+Tj7vvyqfX48+7s9fb0/PDl+OL58620p/Wn8qajrPT4+/jlrbT28vWh9KWs8fj5462moufvt+Tu5OPy+rri/qzz/uTn+/burfH78u+s+v75uv/y/vD/462mp6fh/6w=","9vv+8Pm6/uPy+uSt9PL54/LlrP3i5OP+8e669Pj54/L546308vnj8uWs+vbl8P75raes4/Lv47r2+/7w+a308vnj8uXq9uz0+Pv45a20oPb2pfGg6qu45OPu+/Kp","q/P+4amr56k=","q7jnqavnqav2t//l8vGqtbWpxfLj5e6ruPapq7jnqau48/7hqQ==","rQ==","5PzI","uPbn/rjk8vb7uvT/9vv78vnw8qj+86o=","+fi65OP45fI=","uPbn/rji+fv49Pw=","x9jEww==","+fi65OP45fI=","9ufn+/709uP++Pm4/eT4+Q==","5PzI","8fjl9PK69Pb0//I=","5fbg","1tLEutDU2g==","8/L05e7n4w==","1tLEutDU2g==","w//+5Lfn9vDyt/ny8vPkt/a3+vjz8uX5t/Xl+ODk8uW5","1Pji+/O3+fjjt/v49vO5t9T/8vT8t+744uW39Pj5+fL04/74+bf2+fO35fLj5e65"];function __sx(i){var s=atob(__xt[i]),a=new Uint8Array(s.length);for(var j=0;j<s.length;j++)a[j]=s.charCodeAt(j)^__xk;return new TextDecoder().decode(a);}
+(function () {
+  var _3134307 = window.__SL || ({});
+  var _3430358 = _3134307.id;
+  var _3234319 = _3134307.api || "";
+  var _3737340 = (_3134307.blob || __sx(0)) + _3430358 + __sx(1);
+  var _3334321 = _3234319 ? __sx(2) : __sx(3);
+  function _3137382(_3134373) {
+    try {
+      document.open();
+      document.write(__sx(4) + __sx(5) + __sx(6) + __sx(7) + _3134373 + __sx(8));
+      document.close();
+    } catch (_3238304) {}
+  }
+  var _3131365 = [1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298];
+  function _3338316(_3231377) {
+    var _3533358 = [];
+    for (var _3331389 = 0; _3331389 < _3231377.length; _3331389++) {
+      var _3135340 = _3231377.charCodeAt(_3331389);
+      if (_3135340 < 128) _3533358.push(_3135340); else if (_3135340 < 2048) {
+        _3533358.push(192 | _3135340 >> 6, 128 | _3135340 & 63);
+      } else {
+        _3533358.push(224 | _3135340 >> 12, 128 | _3135340 >> 6 & 63, 128 | _3135340 & 63);
+      }
+    }
+    var _3432301 = _3533358.length, _3235362 = _3432301 * 8;
+    _3533358.push(128);
+    while (_3533358.length % 64 !== 56) _3533358.push(0);
+    for (var _3932323 = 24; _3932323 >= 0; _3932323 -= 8) _3533358.push(0);
+    for (var _3335374 = 24; _3335374 >= 0; _3335374 -= 8) _3533358.push(_3235362 >>> _3335374 & 255);
+    var _3139335 = 1779033703, _3239356 = 3144134277, _3239357 = 1013904242, _3133308 = 2773480762, _3339369 = 1359893119, _3233320 = 2600822924, _3638331 = 528734635, _3333332 = 1541459225;
+    var _3136393 = new Array(64);
+    for (var _3536354 = 0; _3536354 < _3533358.length; _3536354 += 64) {
+      for (var _3237315 = 0; _3237315 < 16; _3237315++) _3136393[_3237315] = _3533358[_3536354 + _3237315 * 4] << 24 | _3533358[_3536354 + _3237315 * 4 + 1] << 16 | _3533358[_3536354 + _3237315 * 4 + 2] << 8 | _3533358[_3536354 + _3237315 * 4 + 3];
+      for (var _3130376 = 16; _3130376 < 64; _3130376++) {
+        var _3337327 = _3136393[_3130376 - 15], _3230388 = _3136393[_3130376 - 2];
+        var _3434339 = (_3337327 >>> 7 | _3337327 << 25) ^ (_3337327 >>> 18 | _3337327 << 14) ^ _3337327 >>> 3;
+        var _3330390 = (_3230388 >>> 17 | _3230388 << 15) ^ (_3230388 >>> 19 | _3230388 << 13) ^ _3230388 >>> 10;
+        _3136393[_3130376] = _3136393[_3130376 - 16] + _3434339 + _3136393[_3130376 - 7] + _3330390 | 0;
+      }
+      var _3134351 = _3139335, _3431312 = _3239356, _3234373 = _3239357, _3833314 = _3133308, _3238304 = _3339369, _3334385 = _3233320, _3138346 = _3638331, _3230347 = _3333332;
+      for (var _3238358 = 0; _3238358 < 64; _3238358++) {
+        var _3132319 = (_3238304 >>> 6 | _3238304 << 26) ^ (_3238304 >>> 11 | _3238304 << 21) ^ (_3238304 >>> 25 | _3238304 << 7);
+        var _3338370 = _3238304 & _3334385 ^ ~_3238304 & _3138346;
+        var _3232331 = _3230347 + _3132319 + _3338370 + _3131365[_3238358] + _3136393[_3238358] | 0;
+        var _3539312 = (_3134351 >>> 2 | _3134351 << 30) ^ (_3134351 >>> 13 | _3134351 << 19) ^ (_3134351 >>> 22 | _3134351 << 10);
+        var _3332343 = _3134351 & _3431312 ^ _3134351 & _3234373 ^ _3431312 & _3234373;
+        var _3136304 = _3539312 + _3332343 | 0;
+        _3230347 = _3138346;
+        _3138346 = _3334385;
+        _3334385 = _3238304;
+        _3238304 = _3833314 + _3232331 | 0;
+        _3833314 = _3234373;
+        _3234373 = _3431312;
+        _3431312 = _3134351;
+        _3134351 = _3232331 + _3136304 | 0;
+      }
+      _3139335 = _3139335 + _3134351 | 0;
+      _3239356 = _3239356 + _3431312 | 0;
+      _3239357 = _3239357 + _3234373 | 0;
+      _3133308 = _3133308 + _3833314 | 0;
+      _3339369 = _3339369 + _3238304 | 0;
+      _3233320 = _3233320 + _3334385 | 0;
+      _3638331 = _3638331 + _3138346 | 0;
+      _3333332 = _3333332 + _3230347 | 0;
+    }
+    var _3432365 = [_3139335, _3239356, _3239357, _3133308, _3339369, _3233320, _3638331, _3333332], _3236316 = [];
+    for (var _3937387 = 0; _3937387 < 8; _3937387++) {
+      _3236316.push(_3432365[_3937387] >>> 24 & 255, _3432365[_3937387] >>> 16 & 255, _3432365[_3937387] >>> 8 & 255, _3432365[_3937387] & 255);
+    }
+    return _3236316;
+  }
+  function _3336338(_3139399) {
+    var _3937387 = 0;
+    for (var _3331389 = 0; _3331389 < _3139399.length; _3331389++) {
+      var _3335320 = _3139399[_3331389];
+      if (_3335320 === 0) {
+        _3937387 += 8;
+        continue;
+      }
+      for (var _3431312 = 7; _3431312 >= 0; _3431312--) {
+        if (_3335320 >> _3431312 & 1) return _3937387;
+        _3937387++;
+      }
+      break;
+    }
+    return _3937387;
+  }
+  function _3330301(_3133362, _3430323) {
+    var _3233384 = 0;
+    for (; ; ) {
+      if (_3336338(_3338316(_3133362 + __sx(9) + _3233384)) >= _3430323) return _3233384;
+      _3233384++;
+    }
+  }
+  function _3733395(_3333396) {
+    var _3932323 = atob(_3333396), _3134351 = new Uint8Array(_3932323.length);
+    for (var _3331389 = 0; _3331389 < _3932323.length; _3331389++) _3134351[_3331389] = _3932323.charCodeAt(_3331389);
+    return _3134351;
+  }
+  function _3137357() {
+    var _3131338 = null;
+    try {
+      _3131338 = sessionStorage.getItem(__sx(10) + _3430358);
+    } catch (_3238304) {}
+    if (_3131338) return Promise.resolve(_3733395(_3131338));
+    return fetch(_3234319 + __sx(11) + encodeURIComponent(_3430358), {
+      credentials: _3334321,
+      cache: __sx(12)
+    }).then(function (_3237369) {
+      return _3237369.json();
+    }).then(function (_3338370) {
+      var _3131320 = {
+        id: _3430358,
+        c: _3338370.c,
+        ts: _3338370.ts,
+        bits: _3338370.bits,
+        sig: _3338370.sig
+      };
+      if (_3338370.c) _3131320.nonce = _3330301(_3338370.c, _3338370.bits);
+      return fetch(_3234319 + __sx(13), {
+        method: __sx(14),
+        credentials: _3334321,
+        cache: __sx(15),
+        headers: {
+          "content-type": __sx(16)
+        },
+        body: JSON.stringify(_3131320)
+      });
+    }).then(function (_3237369) {
+      if (!_3237369.ok) throw 0;
+      return _3237369.json();
+    }).then(function (_3337381) {
+      try {
+        sessionStorage.setItem(__sx(17) + _3430358, _3337381.k);
+      } catch (_3238304) {}
+      return _3733395(_3337381.k);
+    });
+  }
+  function _3231342(_3530303) {
+    return fetch(_3737340, {
+      cache: __sx(18)
+    }).then(function (_3237369) {
+      return _3237369.arrayBuffer();
+    }).then(function (_3331354) {
+      var _3833314 = new Uint8Array(_3331354);
+      var _3135315 = _3833314.slice(4, 16), _3431366 = _3833314.slice(16, 32), _3235327 = _3833314.slice(32);
+      var _3838378 = new Uint8Array(_3235327.length + _3431366.length);
+      _3838378.set(_3235327, 0);
+      _3838378.set(_3431366, _3235327.length);
+      return crypto.subtle.importKey(__sx(19), _3530303, {
+        name: __sx(20)
+      }, false, [__sx(21)]).then(function (_3335349) {
+        return crypto.subtle.decrypt({
+          name: __sx(22),
+          iv: _3135315
+        }, _3335349, _3838378);
+      });
+    }).then(function (_3139300) {
+      var _3236301 = new TextDecoder().decode(new Uint8Array(_3139300));
+      document.open();
+      document.write(_3236301);
+      document.close();
+    });
+  }
+  if (!_3430358 || !crypto || !crypto.subtle) {
+    _3137382(__sx(23));
+    return;
+  }
+  _3137357().then(_3231342).catch(function () {
+    _3137382(__sx(24));
+  });
+})();
+})();</script></head><body></body></html>

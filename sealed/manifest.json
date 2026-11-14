@@ -1,0 +1,21 @@
+{
+  "bits": 16,
+  "routes": {
+    "main.html": "5109beba43a914ab",
+    "calculus.html": "e3afeca6c5b432d2",
+    "science.html": "079f8e6f0242b5d6",
+    "history.html": "fd09e2c04993e1f2",
+    "movies.html": "4a709ebfec695f3b",
+    "spanish.html": "49ee74b4e1f80015",
+    "chat.html": "88ed110f48551c7b",
+    "account.html": "b532b40eff4aad9f",
+    "settings.html": "81e8459e898b8cea",
+    "studying.html": "cecd493307c07afc",
+    "music.html": "64e533b6c2ed7af8",
+    "hangman.html": "a7b65f88dbdb9ed9",
+    "gnmath.html": "a1aeab5e8cf009c0",
+    "other/partners.html": "d863dce110737b1c",
+    "other/privacy.html": "afa06105820674ff",
+    "other/dmca.html": "1c70f43e587e453d"
+  }
+}
