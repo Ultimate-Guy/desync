@@ -571,6 +571,9 @@ body.overlay .lyrics-panel { left: 12px; right: 12px; width: auto; }
 .lib-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .lib-title { border: 0; background: none; color: var(--text); font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; padding: 4px 2px; }
 .lib-title:hover { text-decoration: underline; }
+.lib-title-static { cursor: default; }
+.lib-title-static:hover { text-decoration: none; }
+.lib-head-q { margin-top: 18px; }
 .lib-create {
   display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px;
   border: 1px solid var(--line); border-radius: var(--radius-pill); background: var(--surface);
@@ -626,7 +629,7 @@ body.overlay .lyrics-panel { left: 12px; right: 12px; width: auto; }
 .shelf-scroller { position: relative; }
 .shelf-track {
   display: grid; grid-auto-flow: column; grid-auto-columns: 168px; gap: 14px;
-  overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding-bottom: 4px;
+  overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scrollbar-width: none; padding-bottom: 4px;
 }
 .shelf-track::-webkit-scrollbar { display: none; }
 .shelf-track > * { scroll-snap-align: start; }
@@ -1140,6 +1143,57 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs-one { display: none; position: absolute; top: 8px; right: 8px; font-size: 9px; font-weight: 800; line-height: 1; }
 .lyfs-repeat.one .lyfs-one { display: block; }
 
+.lyfs { display: block; }
+.lyfs-corner { position: absolute; top: 20px; right: 22px; z-index: 3; display: flex; gap: 8px; }
+.lyfs-grid {
+  position: relative; z-index: 1; height: 100%; box-sizing: border-box;
+  display: grid; grid-template-columns: minmax(280px, 390px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding: clamp(40px, 7vh, 92px) clamp(28px, 5vw, 84px);
+  align-items: stretch;
+}
+.lyfs-now { align-self: center; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.lyfs-now .lyfs-art {
+  width: 100%; max-width: 360px; height: auto; aspect-ratio: 1; flex: none;
+  border-radius: 16px; object-fit: cover; display: block;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+.lyfs-now .lyfs-meta { min-width: 0; }
+.lyfs-now .lyfs-title { font-size: clamp(22px, 2.3vw, 30px); font-weight: 800; letter-spacing: -0.01em; white-space: normal; }
+.lyfs-now .lyfs-artist { font-size: 16px; color: rgba(255, 255, 255, 0.68); margin-top: 5px; white-space: normal; }
+.lyfs-now .lyfs-seek { width: 100%; }
+.lyfs-now .lyfs-pill { padding: 0; margin-left: -8px; }
+.lyfs-main { position: relative; min-width: 0; height: 100%; display: flex; flex-direction: column; }
+.lyfs-main .lyfs-lines { flex: 1 1 auto; min-height: 0; height: auto; }
+.lyfs-main .lyfs-inner { max-width: none; margin: 0; padding: 0; text-align: left; }
+.lyfs-main .lyfs-line { text-align: left; }
+.lyfs.is-plain .lyfs-main .lyfs-inner { padding: 6vh 0 14vh; }
+.lyfs.show-queue .lyfs-lines { display: none; }
+.lyfs.show-queue .lyfs-queue { display: block; }
+.lyfs:not(.show-queue) .lyfs-queue { display: none; }
+.lyfs.show-queue #lyfsQueueBtn { background: rgba(255, 255, 255, 0.18); color: #fff; }
+.lyfs-queue { flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-width: none; }
+.lyfs-queue::-webkit-scrollbar { display: none; }
+.lyfs-queue-head { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin: 2px 0 14px; }
+.lyfs-queue-list { display: flex; flex-direction: column; gap: 2px; }
+.lyfs-q-label { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,.45); margin: 14px 0 6px; }
+.lyfs-q-row { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 10px; cursor: pointer; transition: background 0.15s ease; }
+.lyfs-q-row:hover { background: rgba(255, 255, 255, 0.08); }
+.lyfs-q-row.now { background: rgba(255, 255, 255, 0.07); }
+.lyfs-q-art { width: 46px; height: 46px; border-radius: 6px; object-fit: cover; flex: none; background: #1a1a1a; }
+.lyfs-q-meta { min-width: 0; }
+.lyfs-q-title { font-size: 15px; font-weight: 600; color: rgba(255,255,255,.85); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lyfs-q-row.now .lyfs-q-title { color: #fff; }
+.lyfs-q-artist { font-size: 13px; color: rgba(255, 255, 255, 0.58); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 820px) {
+  .lyfs-grid { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 16px; padding: 60px 18px 20px; }
+  .lyfs-now { align-self: start; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .lyfs-now .lyfs-art { width: 64px; height: 64px; }
+  .lyfs-now .lyfs-meta { flex: 1; }
+  .lyfs-now .lyfs-seek { order: 3; width: 100%; }
+  .lyfs-now .lyfs-pill { order: 4; }
+}
+
 @media (max-width: 700px) {
   .lyfs-top { padding: 18px 18px 0; }
   .lyfs-art { width: 48px; height: 48px; border-radius: 8px; }
@@ -1198,7 +1252,7 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyrics-body.has-state { padding: 20px 14px; justify-content: center; align-items: center; }
 .lyr-state { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; width: 100%;
   animation: lyr-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.lyr-viz { display: block; width: 100%; height: 90px; }
+.lyr-viz { display: block; width: 100%; height: min(42vh, 230px); }
 .lyr-t { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-top: 6px; }
 .lyr-s { font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-top: -4px; }
 /* The "No lyrics" note fades out after a few seconds (page-music.js adds

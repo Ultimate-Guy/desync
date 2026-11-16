@@ -1,180 +1,117 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><style>html,body{margin:0;height:100%;background:#000000}</style><script>window.__SL={"id":"be8a750f7f612ce7","api":"https://desynctutoring.com","blob":"/sealed/"};</script><script>(function(){var __xk=154,__xt=["ten/+/b//rU=","tPjz9A==","9ffz7g==","8/T59u/+/w==","prv+9fnu4+r/uvLu9/akpvf/7vu6+fL76On/7qfv7vy3oqSm9//u+7r0+/f/p+zz/+3q9ejuuvn19O7/9O6nuO3z/u7yp/7/7PP5/7ft8/7u8rbz9PPu8/v2t+n5+/b/p6u4pA==","punu4/b/pPj1/uPh+Pv58f3o9e/0/qC5qqqqofn19vXooLn7//is+aih/PX07qCrr+riuunj6e7/97fv86H+8+nq9vvjoPz2/+Kh9/P0t/L/8/3y7qCrqqrs8qE=","+/bz/fS38+7/9+mg+f/07v/oofDv6e7z/OO3+fX07v/07qD5//Tu/+ih9/vo/fP0oKqh7v/i7rf79vP99KD5//Tu/+jn++H59fb16KC5rfv7qPyt56a16e7j9v+k","pv7z7KSm6qQ=","prXqpKbqpKb7uvLo//ynuLikyP/u6OOmtfukprXqpKa1/vPspA==","/eDz6g==","oA==","6fHF","tfvq87Xp//v2t/ny+/b2//T9/6Xz/qc=","9PW36e716P8=","tfvq87Xv9Pb1+fE=","ytXJzg==","9PW36e716P8=","++rq9vP5++7z9fS18On19A==","6fHF","6Pvt","29/Jt93Z1w==","/v/56OPq7g==","29/Jt93Z1w==","zvLz6brq+/3/uvT///7puvu69/X+/+j0uvjo9e3p/+i0","/PXo+f+3+fv58v8=","2fXv9v669PXuuvb1+/60utny//nxuuP17+i6+fX09P/57vP19Lr79P666P/u6OO0"];function __sx(i){var s=atob(__xt[i]),a=new Uint8Array(s.length);for(var j=0;j<s.length;j++)a[j]=s.charCodeAt(j)^__xk;return new TextDecoder().decode(a);}
-(function () {
-  var _3134307 = window.__SL || ({});
-  var _3430358 = _3134307.id;
-  var _3234319 = _3134307.api || "";
-  var _3737340 = (_3134307.blob || __sx(0)) + _3430358 + __sx(1);
-  var _3334321 = _3234319 ? __sx(2) : __sx(3);
-  function _3137382(_3134373) {
-    try {
-      document.open();
-      document.write(__sx(4) + __sx(5) + __sx(6) + __sx(7) + _3134373 + __sx(8));
-      document.close();
-    } catch (_3238304) {}
-  }
-  function _3131365(_3338316) {
-    var _3231377 = atob(_3338316), _3533358 = new Uint8Array(_3231377.length);
-    for (var _3331389 = 0; _3331389 < _3231377.length; _3331389++) _3533358[_3331389] = _3231377.charCodeAt(_3331389);
-    return _3533358;
-  }
-  function _3135340(_3432301) {
-    var _3235362 = new DecompressionStream(__sx(9));
-    return new Response(new Response(_3432301).body.pipeThrough(_3235362)).arrayBuffer().then(function (_3932323) {
-      return new Uint8Array(_3932323);
-    });
-  }
-  var _3335374 = [1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298];
-  function _3139335(_3239356) {
-    var _3239357 = [];
-    for (var _3331389 = 0; _3331389 < _3239356.length; _3331389++) {
-      var _3133308 = _3239356.charCodeAt(_3331389);
-      if (_3133308 < 128) _3239357.push(_3133308); else if (_3133308 < 2048) _3239357.push(192 | _3133308 >> 6, 128 | _3133308 & 63); else _3239357.push(224 | _3133308 >> 12, 128 | _3133308 >> 6 & 63, 128 | _3133308 & 63);
-    }
-    var _3339369 = _3239357.length * 8;
-    _3239357.push(128);
-    while (_3239357.length % 64 !== 56) _3239357.push(0);
-    for (var _3231377 = 24; _3231377 >= 0; _3231377 -= 8) _3239357.push(0);
-    for (var _3233320 = 24; _3233320 >= 0; _3233320 -= 8) _3239357.push(_3339369 >>> _3233320 & 255);
-    var _3638331 = 1779033703, _3333332 = 3144134277, _3136393 = 1013904242, _3536354 = 2773480762, _3237315 = 1359893119, _3130376 = 2600822924, _3337327 = 528734635, _3230388 = 1541459225;
-    var _3434339 = new Array(64);
-    for (var _3330390 = 0; _3330390 < _3239357.length; _3330390 += 64) {
-      for (var _3134351 = 0; _3134351 < 16; _3134351++) _3434339[_3134351] = _3239357[_3330390 + _3134351 * 4] << 24 | _3239357[_3330390 + _3134351 * 4 + 1] << 16 | _3239357[_3330390 + _3134351 * 4 + 2] << 8 | _3239357[_3330390 + _3134351 * 4 + 3];
-      for (var _3431312 = 16; _3431312 < 64; _3431312++) {
-        var _3234373 = _3434339[_3431312 - 15], _3833314 = _3434339[_3431312 - 2];
-        var _3334385 = (_3234373 >>> 7 | _3234373 << 25) ^ (_3234373 >>> 18 | _3234373 << 14) ^ _3234373 >>> 3;
-        var _3138346 = (_3833314 >>> 17 | _3833314 << 15) ^ (_3833314 >>> 19 | _3833314 << 13) ^ _3833314 >>> 10;
-        _3434339[_3431312] = _3434339[_3431312 - 16] + _3334385 + _3434339[_3431312 - 7] + _3138346 | 0;
-      }
-      var _3533358 = _3638331, _3932323 = _3333332, _3230347 = _3136393, _3238358 = _3536354, _3238304 = _3237315, _3132319 = _3130376, _3338370 = _3337327, _3232331 = _3230388;
-      for (var _3539312 = 0; _3539312 < 64; _3539312++) {
-        var _3332343 = (_3238304 >>> 6 | _3238304 << 26) ^ (_3238304 >>> 11 | _3238304 << 21) ^ (_3238304 >>> 25 | _3238304 << 7);
-        var _3136304 = _3238304 & _3132319 ^ ~_3238304 & _3338370;
-        var _3432365 = _3232331 + _3332343 + _3136304 + _3335374[_3539312] + _3434339[_3539312] | 0;
-        var _3236316 = (_3533358 >>> 2 | _3533358 << 30) ^ (_3533358 >>> 13 | _3533358 << 19) ^ (_3533358 >>> 22 | _3533358 << 10);
-        var _3937387 = _3533358 & _3932323 ^ _3533358 & _3230347 ^ _3932323 & _3230347;
-        var _3336338 = _3236316 + _3937387 | 0;
-        _3232331 = _3338370;
-        _3338370 = _3132319;
-        _3132319 = _3238304;
-        _3238304 = _3238358 + _3432365 | 0;
-        _3238358 = _3230347;
-        _3230347 = _3932323;
-        _3932323 = _3533358;
-        _3533358 = _3432365 + _3336338 | 0;
-      }
-      _3638331 = _3638331 + _3533358 | 0;
-      _3333332 = _3333332 + _3932323 | 0;
-      _3136393 = _3136393 + _3230347 | 0;
-      _3536354 = _3536354 + _3238358 | 0;
-      _3237315 = _3237315 + _3238304 | 0;
-      _3130376 = _3130376 + _3132319 | 0;
-      _3337327 = _3337327 + _3338370 | 0;
-      _3230388 = _3230388 + _3232331 | 0;
-    }
-    var _3139399 = [_3638331, _3333332, _3136393, _3536354, _3237315, _3130376, _3337327, _3230388], _3335320 = [];
-    for (var _3330301 = 0; _3330301 < 8; _3330301++) _3335320.push(_3139399[_3330301] >>> 24 & 255, _3139399[_3330301] >>> 16 & 255, _3139399[_3330301] >>> 8 & 255, _3139399[_3330301] & 255);
-    return _3335320;
-  }
-  function _3133362(_3533358) {
-    var _3330301 = 0;
-    for (var _3331389 = 0; _3331389 < _3533358.length; _3331389++) {
-      var _3932323 = _3533358[_3331389];
-      if (_3932323 === 0) {
-        _3330301 += 8;
-        continue;
-      }
-      for (var _3430323 = 7; _3430323 >= 0; _3430323--) {
-        if (_3932323 >> _3430323 & 1) return _3330301;
-        _3330301++;
-      }
-      break;
-    }
-    return _3330301;
-  }
-  function _3233384(_3133308, _3733395) {
-    var _3333396 = 0;
-    for (; ; ) {
-      if (_3133362(_3139335(_3133308 + __sx(10) + _3333396)) >= _3733395) return _3333396;
-      _3333396++;
-    }
-  }
-  function _3137357() {
-    if (_3134307.k) return Promise.resolve(_3131365(_3134307.k));
-    var _3131338 = null;
-    try {
-      _3131338 = sessionStorage.getItem(__sx(11) + _3430358);
-    } catch (_3238304) {}
-    if (_3131338) return Promise.resolve(_3131365(_3131338));
-    return fetch(_3234319 + __sx(12) + encodeURIComponent(_3430358), {
-      credentials: _3334321,
-      cache: __sx(13)
-    }).then(function (_3237369) {
-      return _3237369.json();
-    }).then(function (_3136304) {
-      var _3131320 = {
-        id: _3430358,
-        c: _3136304.c,
-        ts: _3136304.ts,
-        bits: _3136304.bits,
-        sig: _3136304.sig
-      };
-      if (_3136304.c) _3131320.nonce = _3233384(_3136304.c, _3136304.bits);
-      return fetch(_3234319 + __sx(14), {
-        method: __sx(15),
-        credentials: _3334321,
-        cache: __sx(16),
-        headers: {
-          "content-type": __sx(17)
-        },
-        body: JSON.stringify(_3131320)
-      });
-    }).then(function (_3237369) {
-      if (!_3237369.ok) throw 0;
-      return _3237369.json();
-    }).then(function (_3337381) {
-      try {
-        sessionStorage.setItem(__sx(18) + _3430358, _3337381.k);
-      } catch (_3238304) {}
-      return _3131365(_3337381.k);
-    });
-  }
-  function _3231342(_3530303, _3331354) {
-    var _3238358 = new Uint8Array(_3331354);
-    var _3135315 = _3238358[3] === 50;
-    var _3431366 = _3238358.slice(4, 16), _3235327 = _3238358.slice(16, 32), _3838378 = _3238358.slice(32);
-    var _3335349 = new Uint8Array(_3838378.length + _3235327.length);
-    _3335349.set(_3838378, 0);
-    _3335349.set(_3235327, _3838378.length);
-    return crypto.subtle.importKey(__sx(19), _3530303, {
-      name: __sx(20)
-    }, false, [__sx(21)]).then(function (_3139300) {
-      return crypto.subtle.decrypt({
-        name: __sx(22),
-        iv: _3431366
-      }, _3139300, _3335349);
-    }).then(function (_3236301) {
-      var _3239312 = new Uint8Array(_3236301);
-      return _3135315 ? _3135340(_3239312) : _3239312;
-    }).then(function (_3239357) {
-      var _3132373 = new TextDecoder().decode(_3239357);
-      document.open();
-      document.write(_3132373);
-      document.close();
-    });
-  }
-  if (!_3430358 || !crypto || !crypto.subtle) {
-    _3137382(__sx(23));
-    return;
-  }
-  var _3339324 = fetch(_3737340, {
-    cache: __sx(24)
-  }).then(function (_3237369) {
-    return _3237369.arrayBuffer();
-  });
-  Promise.all([_3137357(), _3339324]).then(function (_3533358) {
-    return _3231342(_3533358[0], _3533358[1]);
-  }).catch(function () {
-    _3137382(__sx(25));
-  });
-})();
-})();</script></head><body></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/s3-shim.js"></script>
+  <meta charset="UTF-8">
+  <script src="/j/b84ad467fa.js"></script>
+  <script src="/j/2c09fc8ac4.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partners | desync</title>
+  <link rel="icon" href="/images/onlylessons.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/page-partners.css?v=2">
+  <link rel="stylesheet" href="/css/ui.css?v=5">
+</head>
+<body>
+
+  <div class="container ol-stage">
+    <h1 class="page-title">Partners & Credits</h1>
+    <p class="page-subtitle">Thank you to our partners and contributors</p>
+
+    <div class="main-content">
+      <div class="left-column">
+        <div class="section">
+          <h2 class="section-title">Our Partners</h2>
+          <div class="partners-grid">
+            <a href="https://gn-math.dev" target="_blank" rel="noopener" class="partner-card">
+              <img src="/images/gnmath.webp" alt="gn-math">
+              <p>gn-math</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Support Us</h2>
+          <a href="https://buy.stripe.com/eVqfZh22I1qD7Q248R9sk08" target="_blank" rel="noopener" class="donate-card">
+            <img src="/images/stripe.png" alt="Donate">
+            <div>
+              <p>Donate with Stripe</p>
+              <p class="subtitle">Click to support desync</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="section">
+          <h2 class="section-title">Credits</h2>
+          <div class="credits-card">
+            <h3 style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(227, 222, 220, 0.15);">General Credits</h3>
+            <div class="credit-items-row" style="flex-direction: column; align-items: flex-start;">
+              <a href="https://discord.gg/suntree" target="_blank" rel="noopener" class="credit-item">
+                <img src="/images/omar.webp" alt="Omar" onerror="this.src='/images/ixl.png'">
+                <div class="info">
+                  <div class="name">Omar Ali</div>
+                  <div class="role">Owner & Developer</div>
+                </div>
+              </a>
+              <a href="https://kramerscustoms.com" target="_blank" rel="noopener" class="credit-item">
+                <img src="/images/kcg.webp" alt="Kramer" onerror="this.src='/images/ixl.png'">
+                <div class="info">
+                  <div class="name">Kramer's Customs</div>
+                  <div class="role">FiveM Store</div>
+                </div>
+              </a>
+              <div class="credit-item">
+                <img src="/images/bado.png" alt="Hassan" onerror="this.src='/images/ixl.png'">
+                <div class="info">
+                  <div class="name">Hassan Ali</div>
+                  <div class="role">Co-Owner & Developer</div>
+                </div>
+              </div>
+              <a href="https://discord.gg/kch" target="_blank" rel="noopener" class="credit-item">
+                <img src="/images/glungu.png" alt="Abdullah" onerror="this.src='/images/ixl.png'">
+                <div class="info">
+                  <div class="name">Abdullah</div>
+                  <div class="role">General Developer</div>
+                </div>
+              </a>
+              <a href="https://aubs.lat" target="_blank" rel="noopener" class="credit-item">
+                <img src="/images/mommy.webp" alt="aubree" onerror="this.src='/images/ixl.png'">
+                <div class="info">
+                  <div class="name">aubree</div>
+                  <div class="role">Developer + OG Creator.</div>
+                </div>
+              </a>
+              <div class="credit-item">
+                <img src="/images/download.jpg" alt="Reid" onerror="this.src='/images/ixl.png'">
+                <div class="info">
+                  <div class="name">Reid</div>
+                  <div class="role">FiveM & Ex-Developer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="credits-footer">Big thanks to all of our developers to make desync possible!</p>
+  </div>
+
+  <script src="/j/b2f63be2fb.js"></script>
+  <script src="/j/b4c199109d.js"></script>
+  <script src="/j/8e6f525625.js"></script>
+  <script src="/j/76dc47a7d8.js"></script>
+  <script src="/j/a070e2202f.js"></script>
+  <script src="/j/1ed3515cd8.js"></script>
+  <script type="module" src="/j/286edde49e.js"></script>
+</body>
+</html>
