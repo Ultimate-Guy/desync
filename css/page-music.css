@@ -1148,6 +1148,7 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs-grid {
   position: relative; z-index: 1; height: 100%; box-sizing: border-box;
   display: grid; grid-template-columns: minmax(280px, 390px) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   gap: clamp(28px, 5vw, 72px);
   padding: clamp(40px, 7vh, 92px) clamp(28px, 5vw, 84px);
   align-items: stretch;
