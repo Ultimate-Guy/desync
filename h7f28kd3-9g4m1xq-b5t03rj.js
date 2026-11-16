@@ -29,9 +29,16 @@
     event.respondWith(
       fetch(file, { cache: "no-cache" }).then(function (res) {
         if (!res.ok) return res;
-        return new Response(res.body, {
-          status: 200,
-          headers: { "Content-Type": "text/html; charset=utf-8" },
+        return res.text().then(function (html) {
+          var ROOT = BASE.replace(/\/$/, "");
+          html = html.replace(/(\s(?:src|href|poster)=["'])(\/(?!\/)[^"']*)/g, function (m, pre, p) {
+            if (/^\/(api|ip|ws|active|~|s6n2c8v4|lessons\/ixl)(\/|\?|#|$)/.test(p)) return m;
+            return pre + ROOT + p;
+          });
+          return new Response(html, {
+            status: 200,
+            headers: { "Content-Type": "text/html; charset=utf-8" },
+          });
         });
       })
     );
