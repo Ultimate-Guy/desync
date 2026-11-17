@@ -10,32 +10,35 @@
   <title>DMCA / Copyright | desync</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/page-privacy.css?v=5">
+  <link rel="stylesheet" href="css/page-privacy.css?v=6">
   <link rel="stylesheet" href="css/ui.css?v=31">
 </head>
 <body>
   <div class="legal-shell">
-    <nav class="legal-nav">
-      <a class="legal-back" href="index.html">&larr; <span>Back to desync</span></a>
-      <div class="legal-brand">desync <span class="legal-badge">LEGAL</span></div>
+    <nav class="legal-top">
+      <a class="legal-mark" href="index.html">desync</a>
       <div class="legal-tabs">
         <a href="other/privacy.html">Terms &amp; Privacy</a>
         <a href="other/dmca.html" class="active">DMCA</a>
       </div>
     </nav>
 
-    <main class="legal-doc">
-      <header class="legal-hero">
-        <div class="legal-ic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16.5h4"/></svg>
-        </div>
-        <div class="legal-eyebrow">desync &middot; legal</div>
-        <h1>DMCA / Copyright Policy</h1>
-        <p class="legal-sub">We respect intellectual property and act on valid notices promptly.</p>
-      </header>
+    <div class="legal-wrap">
+      <aside class="legal-aside">
+        <div class="legal-kicker">Legal</div>
+        <h1>DMCA / Copyright</h1>
+        <p class="legal-sub">We act on valid notices promptly.</p>
+        <nav class="legal-toc" aria-label="Sections">
+          <a href="#report">How to report</a>
+          <a href="#scope">What we can act on</a>
+          <a href="#include">What to include</a>
+          <a href="#counter">Counter-notice</a>
+          <a href="#repeat">Repeat infringers</a>
+        </nav>
+      </aside>
 
       <div class="legal-body">
-        <section>
+        <section id="report">
           <h2>How to report infringement</h2>
           <p>If you believe copyrighted material is hosted on, embedded in, or linked from desync, send us a notice at the address below. We will review valid claims and may disable the specific references under our control.</p>
           <div class="legal-callout">
@@ -44,12 +47,12 @@
           </div>
         </section>
 
-        <section>
+        <section id="scope">
           <h2>What we can act on</h2>
           <p>desync is a general-purpose browser/proxy with catalogs that discover or request third-party content. For movies, music and some games, we do not host the underlying files — they come from separate third-party sources. A valid notice should identify the precise desync URL, catalog entry, or page under our control that you want disabled. For files hosted only on a third-party origin, please also notify that origin's operator.</p>
         </section>
 
-        <section>
+        <section id="include">
           <h2>What to include in your notice</h2>
           <p>To be valid, your notice should contain substantially the following:</p>
           <ul>
@@ -62,22 +65,41 @@
           </ul>
         </section>
 
-        <section>
+        <section id="counter">
           <h2>Counter-notice</h2>
           <p>If you believe material was removed or disabled by mistake or misidentification, you may send a counter-notice to the same address with your contact information, identification of the material and where it appeared, and a statement, under penalty of perjury, that you believe the removal was a mistake.</p>
         </section>
 
-        <section>
+        <section id="repeat">
           <h2>Repeat infringers</h2>
           <p>In appropriate circumstances we may disable catalog entries, remove hosted modules, and terminate the accounts of users who are repeat infringers.</p>
+          <div class="legal-foot">
+            <p>For copyright matters only. Use <a href="mailto:contact@desynctutoring.com">contact@desynctutoring.com</a> for all DMCA notices.</p>
+          </div>
         </section>
-
-        <div class="legal-foot">
-          <p>For copyright matters only. Use <a href="mailto:contact@desynctutoring.com">contact@desynctutoring.com</a> for all DMCA notices.</p>
-        </div>
       </div>
-    </main>
+    </div>
   </div>
+
+  <script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.legal-toc a'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('href').slice(1));
+      if (el) map[el.id] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-42% 0px -53% 0px' });
+    Object.keys(map).forEach(function (id) { io.observe(document.getElementById(id)); });
+  })();
+  </script>
 
   <script src="j/e01482757e.js"></script>
   <script src="j/8e6f525625.js"></script>
