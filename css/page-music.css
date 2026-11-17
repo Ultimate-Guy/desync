@@ -1174,7 +1174,7 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs-main { position: relative; min-width: 0; height: 100%; display: flex; flex-direction: column; }
 .lyfs-main .lyfs-lines { flex: 1 1 auto; min-height: 0; height: auto; }
 .lyfs-main .lyfs-inner { max-width: none; margin: 0; padding: 0; text-align: left; }
-.lyfs-main .lyfs-line { text-align: left; }
+.lyfs-main .lyfs-line { text-align: left; transform-origin: left center; }
 .lyfs.is-plain .lyfs-main .lyfs-inner { padding: 6vh 0 14vh; }
 .lyfs.show-queue .lyfs-lines { display: none; }
 .lyfs.show-queue .lyfs-queue { display: block; }
