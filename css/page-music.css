@@ -1312,4 +1312,5 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 
 .lyfs-viz { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .lyfs .lyr-state .lyr-viz { display: none; }
+.lyfs:not(.is-empty) .lyfs-viz, .lyfs.show-queue .lyfs-viz { display: none; }
 @media (prefers-reduced-motion: reduce) { .lyfs-viz { display: none; } }
