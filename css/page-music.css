@@ -1263,7 +1263,7 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyrics-body.has-state { padding: 20px 14px; justify-content: center; align-items: center; }
 .lyr-state { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; width: 100%;
   animation: lyr-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.lyr-viz { display: block; width: 100%; height: min(42vh, 230px); }
+.lyr-viz { display: block; width: 100%; height: clamp(220px, 56vh, 460px); }
 .lyr-t { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-top: 6px; }
 .lyr-s { font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-top: -4px; }
 /* The "No lyrics" note fades out after a few seconds (page-music.js adds
@@ -1309,3 +1309,7 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .track-row-artist { color: var(--text-dim); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .track-row-dur { color: var(--text-dim); font-variant-numeric: tabular-nums; font-size: 13px; padding-left: 8px; }
 .track-row.playing .track-row-title, .track-row.playing .track-row-num { color: var(--accent-color); }
+
+.lyfs-viz { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.lyfs .lyr-state .lyr-viz { display: none; }
+@media (prefers-reduced-motion: reduce) { .lyfs-viz { display: none; } }
