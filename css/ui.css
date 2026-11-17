@@ -456,19 +456,15 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
   bottom: 16px;
   z-index: 60;
   display: flex;
-  gap: 8px;
+  gap: 16px;
 }
 .ol-legal a {
-  padding: 7px 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  background: rgba(8, 10, 15, 0.78);
   color: var(--text-dim);
   font-size: 12px;
   text-decoration: none;
-  transition: color 0.14s ease, border-color 0.14s ease;
+  transition: color 0.14s ease;
 }
-.ol-legal a:hover { color: var(--text); border-color: var(--accent-line); }
+.ol-legal a:hover { color: var(--text); text-decoration: underline; }
 
 .ol-page-head { margin-bottom: 22px; }
 .ol-page-title {
